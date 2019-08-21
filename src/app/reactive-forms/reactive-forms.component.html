@@ -1,0 +1,45 @@
+<h2>Animal</h2>
+<select
+  [(ngModel)]="selectedAnimal"
+  (change)="onChangeAnimal($event.target.value)"
+>
+  <option [ngValue]="undefined">全て</option>
+  <option [ngValue]="animal" *ngFor="let animal of animals">{{
+    animal
+  }}</option>
+</select>
+<div>
+  <label
+    >Animal name:
+    <input type="text" #animalName />
+  </label>
+  <button (click)="onClickAddAnimal(animalName.value)">追加</button>
+  <button (click)="onClickUpdateAnimal(animalName.value)">更新</button>
+</div>
+<h2>Hero</h2>
+<select [(ngModel)]="selectedHero" (change)="onChangeHero($event.target.value)">
+  <option [ngValue]="undefined">全て</option>
+  <option [ngValue]="hero" *ngFor="let hero of heroes">{{ hero.name }}</option>
+</select>
+<div>
+  <label
+    >Hero name:
+    <input type="text" #heroName />
+  </label>
+  <button (click)="onClickAddHero(heroName.value)">追加</button>
+  <button (click)="onClickUpdateHero(heroName.value)">更新</button>
+</div>
+<h2>Reactive Hero</h2>
+<select [formControl]="selectedHeroControl" [compareWith]="compareHero">
+  <option [ngValue]="hero" *ngFor="let hero of heroes">{{ hero.name }}</option>
+</select>
+<div>
+  <label
+    >Hero name:
+    <input type="text" #heroReactiveName />
+  </label>
+  <button (click)="onClickAddReactiveHero(heroReactiveName.value)">追加</button>
+  <button (click)="onClickUpdateReactiveHero(heroReactiveName.value)">
+    更新
+  </button>
+</div>

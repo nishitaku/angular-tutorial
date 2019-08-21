@@ -12,6 +12,7 @@ import { Hero } from '../hero';
 export class HeroSearchComponent implements OnInit {
   heroes$: Observable<Hero[]>;
   private searchTerms = new Subject<string>();
+  temp: string;
 
   constructor(private heroService: HeroService) {}
 
@@ -30,5 +31,9 @@ export class HeroSearchComponent implements OnInit {
       // 検索後が変わる度に、新しい検索observavleにスイッチする
       switchMap((term: string) => this.heroService.searchHeroes(term))
     );
+  }
+
+  btnClick(value: string): void {
+    alert(value);
   }
 }

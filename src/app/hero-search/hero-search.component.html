@@ -8,4 +8,10 @@
       <a routerLink="/detail/{{ hero.id }}"> {{ hero.name }}</a>
     </li>
   </ul>
+
+  <input #phone placeholder="phone number" />
+  <button (click)="btnClick(phone.value)">BUTTON</button>
+
+  <input [(ngModel)]="temp" />
+  <p>{{ temp }}</p>
 </div>
