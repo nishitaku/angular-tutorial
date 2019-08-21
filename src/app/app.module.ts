@@ -13,6 +13,10 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
+import {
+  DropdownComponent,
+  DayFilterPipe
+} from './dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,9 @@ import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.componen
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    ReactiveFormsComponent
+    ReactiveFormsComponent,
+    DropdownComponent,
+    DayFilterPipe
   ],
   imports: [
     BrowserModule,

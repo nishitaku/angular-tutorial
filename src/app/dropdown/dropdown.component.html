@@ -1,0 +1,18 @@
+<div>
+  <label>開始</label>
+  <select [(ngModel)]="startDay">
+    <option
+      [ngValue]="day"
+      *ngFor="let day of days | dayFilter: undefined:endDay"
+      >{{ day }}</option
+    >
+  </select>
+  <label>終了</label>
+  <select [(ngModel)]="endDay">
+    <option
+      [ngValue]="day"
+      *ngFor="let day of days | dayFilter: startDay:undefined"
+      >{{ day }}</option
+    >
+  </select>
+</div>
