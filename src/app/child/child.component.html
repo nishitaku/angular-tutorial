@@ -1,0 +1,11 @@
+<div>
+  <p>Child Component</p>
+  <p>parents inData.name: {{ copyData.name }}</p>
+  <p>parents inData.list: {{ copyData.list }}</p>
+  <p>parents inList: {{ inList }}</p>
+  <p>child list: {{ childList }}</p>
+  <button (click)="onClickChange()">Change inData</button>
+  <button (click)="onClickEmit()">Emit inData</button>
+  <button (click)="onClickChangeList()">Change inList</button>
+  <button (click)="onClickChangeChildList()">Change child list</button>
+</div>

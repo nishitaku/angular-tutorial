@@ -1,0 +1,13 @@
+<div>
+  <p>Parent Component</p>
+  <p>toChildData.name: {{ toChildData.name }}</p>
+  <p>toChildData.list: {{ toChildData.list }}</p>
+  <p>toChildList: {{ toChildList }}</p>
+  <button (click)="onClickChange()">Change toChildData</button>
+  <button (click)="onClickSend()">Send Data</button>
+  <app-child
+    [inData]="toChildData"
+    [inList]="toChildList"
+    (changeData)="changedData($event)"
+  ></app-child>
+</div>

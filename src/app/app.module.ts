@@ -17,6 +17,8 @@ import {
   DropdownComponent,
   DayFilterPipe
 } from './dropdown/dropdown.component';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {
     HeroSearchComponent,
     ReactiveFormsComponent,
     DropdownComponent,
-    DayFilterPipe
+    DayFilterPipe,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
