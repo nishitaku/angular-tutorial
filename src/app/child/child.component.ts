@@ -5,7 +5,8 @@ import {
   OnChanges,
   SimpleChange,
   Output,
-  EventEmitter
+  EventEmitter,
+  ChangeDetectionStrategy,
 } from "@angular/core";
 import { ToChildData } from "../parent/parent.component";
 import { cloneDeep } from "lodash";
@@ -13,7 +14,8 @@ import { cloneDeep } from "lodash";
 @Component({
   selector: "app-child",
   templateUrl: "./child.component.html",
-  styleUrls: ["./child.component.css"]
+  styleUrls: ["./child.component.css"],
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChildComponent implements OnInit, OnChanges {
   @Input() inData: ToChildData;
@@ -29,11 +31,16 @@ export class ChildComponent implements OnInit, OnChanges {
   ngOnInit() {}
 
   ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
+    console.log(`Child: ngOnChanges called`);
     if (changes.inData) {
-      console.log(`ChildComponent: inData=${JSON.stringify(this.inData)}`);
+      console.log(`Child: inData=${JSON.stringify(this.inData)}`);
       // deep copy
       this.copyData = cloneDeep(this.inData);
     }
+  }
+
+  ngDoCheck() {
+    console.log(`ngDoCheck`);
   }
 
   onClickChange() {
@@ -66,5 +73,11 @@ export class ChildComponent implements OnInit, OnChanges {
     // this.childList.splice(1, 2, this.childList[2], this.childList[1]);
     this.childList.shift();
     console.log(`child list=${this.childList}`);
+  }
+
+  isValid = true;
+  getIsValid(): boolean {
+    console.log(`getIsValid`);
+    return this.isValid;
   }
 }

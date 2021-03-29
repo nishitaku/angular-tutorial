@@ -8,35 +8,42 @@ export interface ToChildData {
 @Component({
   selector: "app-parent",
   templateUrl: "./parent.component.html",
-  styleUrls: ["./parent.component.css"]
+  styleUrls: ["./parent.component.css"],
 })
 export class ParentComponent implements OnInit {
   toChildData: ToChildData;
   toChildList: string[];
 
+  private tmpData: ToChildData;
+
   constructor() {}
 
   ngOnInit() {
-    this.toChildData = {
-      name: "init",
-      list: ["1st", "2nd", "3rd"]
-    };
-    // this.toChildList = this.toChildData.list;
+    // this.toChildData = {
+    //   name: "init",
+    //   list: ["1st", "2nd", "3rd"],
+    // };
     this.toChildList = ["a", "b", "c", "d", "e"];
+    this.tmpData = {
+      name: "tmp",
+      list: ["1st", "2nd", "3rd", "4th"],
+    };
+    this.toChildData = this.tmpData;
   }
 
   onClickChange() {
-    this.toChildData = {
-      name: "changedByParent",
-      list: ["1st", "2nd", "3rd"]
+    // this.toChildData = {
+    //   name: "changedByParent",
+    //   list: ["1st", "2nd", "3rd"],
+    // };
+    this.tmpData = {
+      name: "tmp changed",
+      list: ["1st", "2nd", "3rd"],
     };
   }
 
-  onClickSend() {
-    console.log(
-      `Parent Component: toChildData=${JSON.stringify(this.toChildData)}`
-    );
-    console.log(`Parent Component: toChildList=${this.toChildList}`);
+  onClickChangePart() {
+    this.toChildData.name = "changedNameByParent";
   }
 
   changedData(data: ToChildData) {
