@@ -6,6 +6,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { ParentComponent } from './parent/parent.component';
+import { SvgComponent } from './svg/svg.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'heroes', component: HeroesComponent },
   { path: 'reactive-forms', component: ReactiveFormsComponent },
   { path: 'dropdown', component: DropdownComponent },
-  { path: 'parent', component: ParentComponent }
+  { path: 'parent', component: ParentComponent },
+  { path: 'svg', component: SvgComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

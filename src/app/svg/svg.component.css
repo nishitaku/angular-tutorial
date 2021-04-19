@@ -1,0 +1,25 @@
+/* safari */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  _::-webkit-full-page-media,
+  _:future,
+  :root .css-hack {
+    position: fixed;
+    border: 1px solid red;
+    transform-origin: left top;
+    transform: scale(0.5, 0.5);
+  }
+}
+
+/* .css-hack {
+  transform-origin: left top;
+  transform: scale(0.5, 0.5);
+} */
+
+_::-webkit-full-page-media,
+_:future,
+:root .css-hack {
+  position: fixed;
+  border: 1px solid red;
+  transform-origin: left top;
+  transform: scale(0.5, 0.5);
+}

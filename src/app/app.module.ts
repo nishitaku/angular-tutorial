@@ -19,6 +19,7 @@ import {
 } from './dropdown/dropdown.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
+import { SvgComponent } from './svg/svg.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ChildComponent } from './child/child.component';
     DropdownComponent,
     DayFilterPipe,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    SvgComponent
   ],
   imports: [
     BrowserModule,
