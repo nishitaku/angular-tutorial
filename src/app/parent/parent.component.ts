@@ -1,8 +1,14 @@
 import { Component, OnInit } from "@angular/core";
+import { StoreService } from "../services/store/store.service";
 
 export interface ToChildData {
   name: string;
   list: string[];
+}
+
+export interface PostMessage {
+  name: string;
+  age: number;
 }
 
 @Component({
@@ -13,10 +19,11 @@ export interface ToChildData {
 export class ParentComponent implements OnInit {
   toChildData: ToChildData;
   toChildList: string[];
+  val$ = this.storeService.val$;
 
   private tmpData: ToChildData;
 
-  constructor() {}
+  constructor(private storeService: StoreService) {}
 
   ngOnInit() {
     // this.toChildData = {
@@ -49,5 +56,17 @@ export class ParentComponent implements OnInit {
   changedData(data: ToChildData) {
     console.log(`Changed data: ${JSON.stringify(data)}`);
     this.toChildData = data;
+  }
+
+  onClickNewTab() {
+    this.storeService.val = 10;
+    const newtabRef = window.open("/newtab", "_blank");
+    newtabRef.onload = () => {
+      const data: PostMessage = {
+        name: "taro",
+        age: 10,
+      };
+      newtabRef.postMessage(data, window.location.origin);
+    };
   }
 }

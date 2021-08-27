@@ -10,4 +10,10 @@
     [inList]="toChildList"
     (changeData)="changedData($event)"
   ></app-child>
+
+  <p>val={{ val$ | async }}</p>
+  <a href="/newtab" target="_blank" rel="opener">新規タブを開く(aタグ)</a>
+  <button style="display: block" (click)="onClickNewTab()">
+    新規タブを開く(window.open)
+  </button>
 </div>
