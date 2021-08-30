@@ -1,4 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import {
+  SessionStorageService,
+  SessionStorageValue,
+} from "../services/session-storage/session-storage.service";
 import { StoreService } from "../services/store/store.service";
 
 export interface ToChildData {
@@ -23,7 +27,10 @@ export class ParentComponent implements OnInit {
 
   private tmpData: ToChildData;
 
-  constructor(private storeService: StoreService) {}
+  constructor(
+    private storeService: StoreService,
+    private sessionStorageService: SessionStorageService
+  ) {}
 
   ngOnInit() {
     // this.toChildData = {
@@ -58,7 +65,7 @@ export class ParentComponent implements OnInit {
     this.toChildData = data;
   }
 
-  onClickNewTab() {
+  onClickNewTabWithPostMessage() {
     this.storeService.val = 10;
     const newtabRef = window.open("/newtab", "_blank");
     newtabRef.onload = () => {
@@ -68,5 +75,22 @@ export class ParentComponent implements OnInit {
       };
       newtabRef.postMessage(data, window.location.origin);
     };
+  }
+
+  onClickNewTabWithSessionStorage() {
+    this.sessionStorageService.setItem("hogehoge", "ooo");
+    const newtabRef = window.open("/newtab", "_blank");
+  }
+
+  onClickUpdateSessionStorage() {
+    const value: SessionStorageValue = {
+      name: "hanako",
+      age: 20,
+    };
+    this.sessionStorageService.setUserItem("11111", value);
+  }
+
+  onClickRemoveSessionStorage() {
+    this.sessionStorageService.removeUserItem("abcdef");
   }
 }

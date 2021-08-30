@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from "@angular/core";
+import { SessionStorageService } from "src/app/services/session-storage/session-storage.service";
 import { StoreService } from "src/app/services/store/store.service";
 
 @Component({
@@ -9,11 +10,17 @@ import { StoreService } from "src/app/services/store/store.service";
 export class NewtabComponent implements OnInit {
   val: number;
   val$ = this.storeService.val$;
+  sessionStorageItem: any;
 
-  constructor(private storeService: StoreService) {}
+  constructor(
+    private storeService: StoreService,
+    private sessionStorageService: SessionStorageService
+  ) {}
 
   ngOnInit() {
     this.val = this.storeService.val;
+    this.sessionStorageItem = this.sessionStorageService.getItem("hogehoge");
+    console.log(`ngOnInit: ${this.sessionStorageItem}`);
   }
 
   onClickBtn() {

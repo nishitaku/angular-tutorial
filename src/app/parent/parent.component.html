@@ -13,7 +13,16 @@
 
   <p>val={{ val$ | async }}</p>
   <a href="/newtab" target="_blank" rel="opener">新規タブを開く(aタグ)</a>
-  <button style="display: block" (click)="onClickNewTab()">
-    新規タブを開く(window.open)
+  <button style="display: block" (click)="onClickNewTabWithPostMessage()">
+    新規タブを開く(window.open)+PostMessage
+  </button>
+  <button style="display: block" (click)="onClickNewTabWithSessionStorage()">
+    新規タブを開く(window.open)+SessionStorage
+  </button>
+  <button style="display: block" (click)="onClickUpdateSessionStorage()">
+    SessionStorageの更新
+  </button>
+  <button style="display: block" (click)="onClickRemoveSessionStorage()">
+    SessionStorageの削除
   </button>
 </div>
